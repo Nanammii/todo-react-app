@@ -6,7 +6,7 @@ import ModalTask from "../modal-task/modal-task";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path={AppRoute.Root} element={ <MainPage /> }></Route>
         <Route path={`${AppRoute.Project}/:projectId`} element={ <ProjectPage /> }></Route>
