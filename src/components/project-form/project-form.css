@@ -1,0 +1,18 @@
+.project-form {
+  margin-bottom: 40px;
+}
+
+.project-input {
+  width: 250px;
+  padding: 10px 25px;
+  border: none;
+  background-color: #ccccce;
+}
+
+.project-button {
+  padding: 10px;
+  border: none;
+  background-color: #9d73c5;
+  color: #ffffff;
+  cursor: pointer;
+}
