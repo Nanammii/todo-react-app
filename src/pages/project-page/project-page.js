@@ -12,6 +12,7 @@ function ProjectPage() {
   const {projectId} = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [tasksList, setTasksList] = useState([]);
+  const [currentStatus, setCurrentStatus] = useState('');
 
   useEffect(() => {
     const savedTasks = localStorage.getItem("tasks");
@@ -28,9 +29,8 @@ function ProjectPage() {
     localStorage.setItem("tasks", JSON.stringify(updatedTask));
   }
 
-  console.log(projectId)
-
-  const handleOpenModal = () => {
+  const handleOpenModal = (status) => {
+    setCurrentStatus(status);
     setIsModalOpen(true);
   }
 
@@ -44,13 +44,15 @@ function ProjectPage() {
             {tasksList
               .filter((task) => task.status === status)
               .map((task, index) => (
-              <Task key={index} task={task.task} />
+              <Task key={index} task={task} />
             ))}
-            {isModalOpen && <ModalTask
+            {isModalOpen && currentStatus === status && (
+              <ModalTask
               addTask={addTask}
               currentStatus={status}
               onCloseModal={() => setIsModalOpen(false)}
-            />}
+            />
+            )}
 
             <div className="status-bottom">
               <FontAwesomeIcon icon={faPlus} className="status-icon" />

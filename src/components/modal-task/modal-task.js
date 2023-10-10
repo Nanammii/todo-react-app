@@ -2,13 +2,19 @@ import "./modal-task.css";
 import {useState} from "react";
 
 function ModalTask({onCloseModal, addTask, currentStatus}) {
-  const [nameTask, setNameTask] = useState('');
+  const [detailsTask, setDetailsTask] = useState({
+    title: '',
+
+  });
 
   const handleSubmitTaskForm = (e) => {
     e.preventDefault();
-    addTask(nameTask, currentStatus);
-    setNameTask('');
-  }
+
+    setDetailsTask({...detailsTask, title: detailsTask.title});
+
+    addTask(detailsTask.title, currentStatus);
+    setDetailsTask({title: ''});
+  };
 
   return (
     <div className="modal-task">
@@ -16,9 +22,9 @@ function ModalTask({onCloseModal, addTask, currentStatus}) {
         <form onSubmit={handleSubmitTaskForm}>
           <input
             type="text"
-            placeholder="Name task"
-            value={nameTask}
-            onChange={(e) => setNameTask(e.target.value)}
+            placeholder="title task"
+            value={detailsTask.title}
+            onChange={(e) => setDetailsTask({...detailsTask, title: e.target.value})}
           />
           <button type="submit">Save</button>
           <button onClick={onCloseModal}>Close</button>

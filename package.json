@@ -1,8 +1,8 @@
 {
   "name": "todo-app",
   "version": "0.1.0",
-  "homepage": "https://nanammii.github.io/react-gh-pages",
-  "private": false,
+  "homepage": "https://nanammii.github.io/todo-react-app",
+  "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
